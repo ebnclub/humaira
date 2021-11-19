@@ -2,9 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:humaira/color/color.dart';
 
 import 'package:humaira/pages/login/login.dart';
+import 'package:page_transition/page_transition.dart';
+
+import 'login.dart';
 
 class SplashScreen extends StatefulWidget {
   final String title;
@@ -15,14 +18,10 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final Color _primaryColor = HexColor('#00A9B8');
-  
   startSplashScreen() async {
     var duration = const Duration(seconds: 5);
     return Timer(duration, () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        return const LoginPage();
-      }));
+      Navigator.of(context).pushAndRemoveUntil(PageTransition(type: PageTransitionType.fade, child: const Login2Page()), (route) => false);
     });
   }
 
@@ -35,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: _primaryColor,
+        backgroundColor: warnaPrimer(),
         body: Center(
           child: Image.asset(
             'assets/logo_putih.png',
