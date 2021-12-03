@@ -13,12 +13,10 @@ import 'package:delayed_display/delayed_display.dart';
 
 import 'package:humaira/color/color.dart';
 import 'package:humaira/pages/navigation/bottom_navigator.dart';
-import 'package:humaira/pages/home/home.dart';
-import 'package:humaira/theme/slide_left.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'forgot_password.dart';
+// import 'forgot_password.dart';
 
 class Login2Page extends StatefulWidget {
   const Login2Page({Key? key}) : super(key: key);
@@ -59,7 +57,7 @@ class _Login2PageState extends State<Login2Page> {
     String? val = pref.getString("login");
     if (val != null) {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => BottomNavgigator()),
+          MaterialPageRoute(builder: (context) => BottomNavgigator(menu: 0)),
           (route) => false);
     }
   }
@@ -71,79 +69,79 @@ class _Login2PageState extends State<Login2Page> {
       body: SingleChildScrollView(
         child: AnimatedSize(
           curve: Curves.easeIn,
-          duration: Duration(seconds: 1),
+          duration: const Duration(seconds: 1),
           child: Container(
-            padding: EdgeInsets.only(left: 50.0, right: 50.0),
+            padding: const EdgeInsets.only(left: 50.0, right: 50.0),
             child: Column(
               children: [
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
                 DelayedDisplay(
-                  delay: Duration(seconds: 1),
-                  child: Image.asset('assets/logo_putih.png',
+                  delay: const Duration(seconds: 1),
+                  child: Image.asset('assets/images/logo_putih.png',
                       width: 150.0, height: 150.0),
                 ),
                 DelayedDisplay(
-                  delay: Duration(seconds: 1),
+                  delay: const Duration(seconds: 1),
                   child: Container(
                       decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.3),
                               blurRadius: 10,
-                              offset: Offset(0, 10),
+                              offset: const Offset(0, 10),
                             )
                           ],
                           color: warnaSekunder(),
                           border: Border.all(
                             color: Colors.white,
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(30))),
+                          borderRadius: const BorderRadius.all(Radius.circular(30))),
                       child: Column(
                         children: [
-                          SizedBox(height: 30),
+                          const SizedBox(height: 30),
                           DelayedDisplay(
-                            delay: Duration(seconds: 1),
+                            delay: const Duration(seconds: 1),
                             child: Padding(
                               padding:
-                                  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                  const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                               child: TextField(
                                   controller: usernameController,
                                   decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.account_circle),
+                                    prefixIcon: const Icon(Icons.account_circle),
                                     labelText: 'Username',
                                     fillColor: warnaPrimerOpacity(),
                                     filled: true,
                                     contentPadding:
-                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                        const EdgeInsets.fromLTRB(20, 10, 20, 10),
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(50.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Colors.blue, width: 1.0)),
                                     enabledBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(50.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Colors.white, width: 1.0)),
                                     errorBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(50.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Colors.red, width: 1.0)),
                                     focusedErrorBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(50.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Colors.red, width: 1.0)),
                                   )),
                             ),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           DelayedDisplay(
-                            delay: Duration(seconds: 1),
+                            delay: const Duration(seconds: 1),
                             child: Padding(
                               padding:
-                                  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                  const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                               child: TextField(
                                   controller: passwordController,
                                   obscureText: _isVisible ? false : true,
@@ -152,7 +150,7 @@ class _Login2PageState extends State<Login2Page> {
                                         RegExp(r"\s\b|\b\s"))
                                   ],
                                   decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.lock),
+                                    prefixIcon: const Icon(Icons.lock),
                                     labelText: 'Password',
                                     suffixIcon: IconButton(
                                       onPressed: () => updateStatus(),
@@ -163,31 +161,31 @@ class _Login2PageState extends State<Login2Page> {
                                     fillColor: warnaPrimerOpacity(),
                                     filled: true,
                                     contentPadding:
-                                        EdgeInsets.fromLTRB(20, 10, 20, 10),
+                                        const EdgeInsets.fromLTRB(20, 10, 20, 10),
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(50.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Colors.blue, width: 1.0)),
                                     enabledBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(50.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Colors.white, width: 1.0)),
                                     errorBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(50.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Colors.red, width: 1.0)),
                                     focusedErrorBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(50.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Colors.red, width: 1.0)),
                                   )),
                             ),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           FlutterPwValidator(
                               successColor: warnaPrimer(),
                               controller: passwordController,
@@ -204,37 +202,37 @@ class _Login2PageState extends State<Login2Page> {
                               visible: _kelihatan,
                               child: Column(
                                 children: [
-                                  SizedBox(height: 20),
+                                  const SizedBox(height: 20),
                                   DelayedDisplay(
-                                    delay: Duration(seconds: 1),
+                                    delay: const Duration(seconds: 1),
                                     child: Padding(
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 0.0, 20.0, 0.0),
                                       child: TextField(
                                           controller: emailController,
                                           decoration: InputDecoration(
-                                            prefixIcon: Icon(Icons.mail),
+                                            prefixIcon: const Icon(Icons.mail),
                                             labelText: 'Email',
                                             fillColor: warnaPrimerOpacity(),
                                             filled: true,
-                                            contentPadding: EdgeInsets.fromLTRB(
+                                            contentPadding: const EdgeInsets.fromLTRB(
                                                 20, 10, 20, 10),
                                             focusedBorder: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(50.0),
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                     color: Colors.blue,
                                                     width: 1.0)),
                                             enabledBorder: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(50.0),
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                     color: Colors.white,
                                                     width: 1.0)),
                                             errorBorder: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(50.0),
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                     color: Colors.red,
                                                     width: 1.0)),
                                             focusedErrorBorder:
@@ -242,43 +240,43 @@ class _Login2PageState extends State<Login2Page> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             50.0),
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                         color: Colors.red,
                                                         width: 1.0)),
                                           )),
                                     ),
                                   ),
-                                  SizedBox(height: 20),
+                                  const SizedBox(height: 20),
                                   DelayedDisplay(
-                                    delay: Duration(seconds: 1),
+                                    delay: const Duration(seconds: 1),
                                     child: Padding(
-                                      padding: EdgeInsets.fromLTRB(
+                                      padding: const EdgeInsets.fromLTRB(
                                           20.0, 0.0, 20.0, 0.0),
                                       child: TextField(
                                           controller: referalController,
                                           decoration: InputDecoration(
-                                            prefixIcon: Icon(Icons.pin),
+                                            prefixIcon: const Icon(Icons.pin),
                                             labelText: 'Kode Referal',
                                             fillColor: warnaPrimerOpacity(),
                                             filled: true,
-                                            contentPadding: EdgeInsets.fromLTRB(
+                                            contentPadding: const EdgeInsets.fromLTRB(
                                                 20, 10, 20, 10),
                                             focusedBorder: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(50.0),
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                     color: Colors.blue,
                                                     width: 1.0)),
                                             enabledBorder: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(50.0),
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                     color: Colors.white,
                                                     width: 1.0)),
                                             errorBorder: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(50.0),
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                     color: Colors.red,
                                                     width: 1.0)),
                                             focusedErrorBorder:
@@ -286,7 +284,7 @@ class _Login2PageState extends State<Login2Page> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             50.0),
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                         color: Colors.red,
                                                         width: 1.0)),
                                           )),
@@ -313,11 +311,11 @@ class _Login2PageState extends State<Login2Page> {
   Widget buttonAction(username, password, email, referal) {
     if (_kelihatan == true) {
       return Column(children: [
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         DelayedDisplay(
-          delay: Duration(seconds: 1),
+          delay: const Duration(seconds: 1),
           child: Padding(
-            padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Stack(
@@ -330,7 +328,7 @@ class _Login2PageState extends State<Login2Page> {
                           BoxShadow(
                             color: Colors.black.withOpacity(0.3),
                             blurRadius: 10,
-                            offset: Offset(0, 10),
+                            offset: const Offset(0, 10),
                           )
                         ],
                       ),
@@ -338,14 +336,14 @@ class _Login2PageState extends State<Login2Page> {
                   ),
                   TextButton(
                     style: TextButton.styleFrom(
-                      padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                      padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
                       primary: Colors.white,
-                      textStyle: TextStyle(fontSize: 16),
+                      textStyle: const TextStyle(fontSize: 16),
                     ),
                     onPressed: () {
                       register();
                     },
-                    child: Text('SIGNUP'),
+                    child: const Text('SIGNUP'),
                   ),
                 ],
               ),
@@ -353,12 +351,12 @@ class _Login2PageState extends State<Login2Page> {
           ),
         ),
         DelayedDisplay(
-          delay: Duration(seconds: 1),
+          delay: const Duration(seconds: 1),
           child: Padding(
-            padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
             child: TextButton(
               style: TextButton.styleFrom(
-                textStyle: TextStyle(fontSize: 14),
+                textStyle: const TextStyle(fontSize: 14),
               ),
               onPressed: () {
                 formRegister();
@@ -375,12 +373,12 @@ class _Login2PageState extends State<Login2Page> {
       return Column(
         children: [
           DelayedDisplay(
-            delay: Duration(seconds: 1),
+            delay: const Duration(seconds: 1),
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+              padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
               child: TextButton(
                 style: TextButton.styleFrom(
-                  textStyle: TextStyle(fontSize: 14),
+                  textStyle: const TextStyle(fontSize: 14),
                 ),
                 onPressed: () {
                   // Navigator.of(context).push(
@@ -391,14 +389,14 @@ class _Login2PageState extends State<Login2Page> {
                   //   ),
                   // );
                 },
-                child: Text('Forgot Password?'),
+                child: const Text('Forgot Password?'),
               ),
             ),
           ),
           DelayedDisplay(
-            delay: Duration(seconds: 1),
+            delay: const Duration(seconds: 1),
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+              padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(50),
                 child: Stack(
@@ -411,7 +409,7 @@ class _Login2PageState extends State<Login2Page> {
                             BoxShadow(
                               color: Colors.black.withOpacity(0.3),
                               blurRadius: 10,
-                              offset: Offset(0, 10),
+                              offset: const Offset(0, 10),
                             )
                           ],
                         ),
@@ -419,14 +417,14 @@ class _Login2PageState extends State<Login2Page> {
                     ),
                     TextButton(
                       style: TextButton.styleFrom(
-                        padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                        padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
                         primary: Colors.white,
-                        textStyle: TextStyle(fontSize: 16),
+                        textStyle: const TextStyle(fontSize: 16),
                       ),
                       onPressed: () {
                         login();
                       },
-                      child: Text('LOGIN'),
+                      child: const Text('LOGIN'),
                     ),
                   ],
                 ),
@@ -434,12 +432,12 @@ class _Login2PageState extends State<Login2Page> {
             ),
           ),
           DelayedDisplay(
-            delay: Duration(seconds: 1),
+            delay: const Duration(seconds: 1),
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+              padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
               child: TextButton(
                 style: TextButton.styleFrom(
-                  textStyle: TextStyle(fontSize: 14),
+                  textStyle: const TextStyle(fontSize: 14),
                 ),
                 onPressed: () {
                   formRegister();
@@ -454,7 +452,7 @@ class _Login2PageState extends State<Login2Page> {
         ],
       );
     }
-    return Text("Error");
+    return const Text("Error");
   }
 
   void login() async {
@@ -475,14 +473,14 @@ class _Login2PageState extends State<Login2Page> {
       if (response.statusCode == 200) {
         final body = json.decode(response.body);
         print("Berhasil login " + body["username"] + " id : " + body['id_konsumen']);
-        pageRoute(body['id_konsumen'], context);
+        pageRoute(body['id_konsumen'], body["username"], context);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text("Username atau Password salah")));
+            const SnackBar(content: Text("Username atau Password salah")));
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Username atau Password masih kosong")));
+          const SnackBar(content: Text("Username atau Password masih kosong")));
     }
   }
 
@@ -508,7 +506,7 @@ class _Login2PageState extends State<Login2Page> {
         if (response.statusCode == 200) {
           final body = json.decode(response.body);
           print("Berhasil Registrasi dengan id " + body['data']);
-          pageRoute(body['data'], context);
+          pageRoute(body['data'], usernameController.text, context);
         } else {
           final body = json.decode(response.body);
           ScaffoldMessenger.of(context)
@@ -516,19 +514,20 @@ class _Login2PageState extends State<Login2Page> {
         }
       } else {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Email tidak valid')));
+            .showSnackBar(const SnackBar(content: Text('Email tidak valid')));
       }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Username, Password dan Email harus diisi')));
+          const SnackBar(content: Text('Username, Password dan Email harus diisi')));
     }
   }
 
-  void pageRoute(id, context) async {
+  void pageRoute(id, username, context) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.setString("login", id);
+    await pref.setString("username", username);
     Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => BottomNavgigator()), (route) => false);
+        MaterialPageRoute(builder: (context) => BottomNavgigator(menu:0)), (route) => false);
   }
 
   void passwordValid() {

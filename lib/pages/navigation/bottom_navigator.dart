@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:humaira/pages/account/account.dart';
-import 'package:humaira/pages/ebn_club/ebn_club.dart';
+import 'package:humaira/pages/ebc-com/ebc_com.dart';
 import 'package:humaira/pages/home/home.dart';
 import 'package:humaira/pages/my_course/my_course.dart';
 import 'package:humaira/pages/wishlist/wishlist.dart';
 
 class BottomNavgigator extends StatefulWidget {
-  const BottomNavgigator({Key? key}) : super(key: key);
+  int menu;
+  BottomNavgigator({Key? key, required this.menu}) : super(key: key);
 
   @override
   _BottomNavgigatorState createState() => _BottomNavgigatorState();
 }
 
 class _BottomNavgigatorState extends State<BottomNavgigator> {
-  int _selectedIndex = 0;
-  List pages = [HomePage(), MyCourse(), EbnClub(), Wishlist(), Account()];
+  List pages = [const HomePage(), const MyCourse(), const EbnClub(), const Wishlist(), const Account()];
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -43,14 +43,14 @@ class _BottomNavgigatorState extends State<BottomNavgigator> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      widget.menu = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_selectedIndex],
+      body: pages[widget.menu],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -62,7 +62,8 @@ class _BottomNavgigatorState extends State<BottomNavgigator> {
             label: 'My Course',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.supervised_user_circle_outlined, color: Colors.black),
+            icon: Icon(Icons.supervised_user_circle_outlined,
+                color: Colors.black),
             label: 'EBN Club',
           ),
           BottomNavigationBarItem(
@@ -74,7 +75,7 @@ class _BottomNavgigatorState extends State<BottomNavgigator> {
             label: 'Account',
           ),
         ],
-        currentIndex: _selectedIndex,
+        currentIndex: widget.menu,
         selectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),

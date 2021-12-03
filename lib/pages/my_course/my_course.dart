@@ -164,7 +164,7 @@ class _MyCourseState extends State<MyCourse> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     image: DecorationImage(
-                        image: AssetImage('2.jpg'), fit: BoxFit.fill))),
+                        image: AssetImage('assets/images/2.jpg'), fit: BoxFit.fill))),
             SizedBox(
               width: 10,
             ),
@@ -225,7 +225,7 @@ class _MyCourseState extends State<MyCourse> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     image: DecorationImage(
-                        image: AssetImage('2.jpg'), fit: BoxFit.fill))),
+                        image: AssetImage('assets/images/2.jpg'), fit: BoxFit.fill))),
             SizedBox(
               width: 10,
             ),
@@ -333,7 +333,7 @@ class _MyCourseState extends State<MyCourse> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     image: DecorationImage(
-                        image: AssetImage('1.png'), fit: BoxFit.fill))),
+                        image: AssetImage('assets/images/1.png'), fit: BoxFit.fill))),
             SizedBox(
               width: 10,
             ),
@@ -394,7 +394,7 @@ class _MyCourseState extends State<MyCourse> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     image: DecorationImage(
-                        image: AssetImage('1.png'), fit: BoxFit.fill))),
+                        image: AssetImage('assets/images/1.png'), fit: BoxFit.fill))),
             SizedBox(
               width: 10,
             ),
